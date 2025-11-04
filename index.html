@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire & PUBG - Play & Win Real Money</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFE66D',
+                        dark: '#2C3E50',
+                        light: '#F7F9FC'
+                    },
+                    fontFamily: {
+                        heading: ['Fredoka One', 'cursive'],
+                        body: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #FFE66D); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(0,0,0,0.15); }
+        .room-card { transition: all 0.3s ease; }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255,107,107,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,107,107,0); }
+        }
+        .dice-roll {
+            animation: roll 0.6s ease-in-out;
+        }
+        @keyframes roll {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-light font-body text-dark min-h-screen">
+
+    <!-- Landing Page (Before Login) -->
+    <div id="landingPage" class="min-h-screen flex flex-col">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-lg sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <i class="fas fa-gamepad text-primary text-3xl mr-2"></i>
+                        <h1 class="text-2xl font-heading text-primary">Free Fire & PUBG</h1>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button onclick="showLogin()" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition font-semibold">Login</button>
+                        <button onclick="showSignup()" class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-primary transition font-semibold">Sign Up</button>
+                        <button onclick="showAdminLogin()" class="bg-accent text-dark px-6 py-2 rounded-full font-semibold hover:bg-secondary transition">Admin</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="gradient-bg flex-1 flex items-center justify-center py-20 px-4">
+            <div class="text-center text-white max-w-4xl">
+                <h1 class="text-5xl md:text-7xl font-heading mb-6 animate-bounce">Play Free Fire & PUBG. Win Real Cash!</h1>
+                <p class="text-xl md:text-2xl mb-8">Join millions of players. 100% secure. Instant withdrawals.</p>
+                <div class="flex justify-center space-x-6 mb-10">
+                    <div class="bg-white text-dark p-6 rounded-2xl shadow-xl">
+                        <i class="fas fa-users text-4xl text-primary mb-2"></i>
+                        <p class="text-2xl font-bold">5M+</p>
+                        <p class="text-sm">Active Players</p>
+                    </div>
+                    <div class="bg-white text-dark p-6 rounded-2xl shadow-xl">
+                        <i class="fas fa-rupee-sign text-4xl text-secondary mb-2"></i>
+                        <p class="text-2xl font-bold">₹50Cr+</p>
+                        <p class="text-sm">Paid Out</p>
+                    </div>
+                    <div class="bg-white text-dark p-6 rounded-2xl shadow-xl">
+                        <i class="fas fa-shield-alt text-4xl text-accent mb-2"></i>
+                        <p class="text-2xl font-bold">100%</p>
+                        <p class="text-sm">Secure</p>
+                    </div>
+                </div>
+                <button onclick="showSignup()" class="bg-white text-primary px-10 py-4 rounded-full text-xl font-bold hover:scale-110 transition transform pulse">
+                    Play Now & Win ₹500!
+                </button>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-heading text-center mb-12 text-primary">Why Choose Us?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-light rounded-2xl card-hover">
+                        <i class="fas fa-bolt text-5xl text-secondary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Instant Cashout</h3>
+                        <p>Withdraw winnings in 24 hours via UPI/Bank</p>
+                    </div>
+                    <div class="text-center p-8 bg-light rounded-2xl card-hover">
+                        <i class="fas fa-lock text-5xl text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">100% Safe</h3>
+                        <p>Fully encrypted. RNG certified fair play</p>
+                    </div>
+                    <div class="text-center p-8 bg-light rounded-2xl card-hover">
+                        <i class="fas fa-trophy text-5xl text-accent mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Win 90%</h3>
+                        <p>Only 10% platform fee. Maximum earnings!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 w-full max-w-md transform scale-95 transition">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-heading text-primary">Create Account</h2>
+                <button onclick="closeModals()" class="text-2xl">×</button>
+            </div>
+            <form onsubmit="handleSignup(event)">
+                <input type="text" id="signupName" placeholder="Full Name" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <input type="email" id="signupEmail" placeholder="Email" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <input type="tel" id="signupPhone" placeholder="Phone (10 digits)" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none" pattern="[0-9]{10}" required>
+                <input type="password" id="signupPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                    Sign Up Free
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 w-full max-w-md transform scale-95 transition">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-heading text-primary">Welcome Back!</h2>
+                <button onclick="closeModals()" class="text-2xl">×</button>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <input type="email" id="loginEmail" placeholder="Email" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <input type="password" id="loginPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                    Login Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 w-full max-w-md transform scale-95 transition">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-heading text-primary">Admin Login</h2>
+                <button onclick="closeAdminModal()" class="text-2xl">×</button>
+            </div>
+            <form onsubmit="handleAdminLogin(event)">
+                <input type="email" id="adminEmail" placeholder="Admin Email" class="w-full p-4 mb-4 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <input type="password" id="adminPass" placeholder="Password" class="w-full p-4 mb-6 border-2 border-secondary rounded-xl focus:border-primary outline-none" required>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                    Admin Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard (After Login) -->
+    <div id="dashboard" class="hidden min-h-screen bg-light">
+        <!-- Dashboard Navbar -->
+        <nav class="bg-white shadow-lg sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <i class="fas fa-gamepad text-primary text-3xl mr-2"></i>
+                        <h1 class="text-2xl font-heading text-primary">Free Fire & PUBG</h1>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="text-right">
+                            <p class="font-bold" id="dashUsername">Player123</p>
+                            <p class="text-xs text-gray-600" id="lastSeen">Last seen: just now</p>
+                        </div>
+                        <div class="relative">
+                            <button onclick="toggleMenu()" class="text-3xl text-dark">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div id="menuDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl hidden">
+                                <a href="#" onclick="showSection('profile')" class="block px-6 py-3 hover:bg-light rounded-t-2xl"><i class="fas fa-user mr-2"></i> Profile</a>
+                                <a href="#" onclick="showSection('history')" class="block px-6 py-3 hover:bg-light"><i class="fas fa-history mr-2"></i> History</a>
+                                <a href="#" onclick="showSection('deposit')" class="block px-6 py-3 hover:bg-light"><i class="fas fa-wallet mr-2"></i> Deposit</a>
+                                <a href="#" onclick="showSection('withdraw')" class="block px-6 py-3 hover:bg-light"><i class="fas fa-money-bill-wave mr-2"></i> Withdraw</a>
+                                <a href="#" class="block px-6 py-3 hover:bg-light text-red-600" onclick="logout()"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- User Info Card -->
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-3xl shadow-xl">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm opacity-90">Welcome back,</p>
+                        <p class="text-2xl font-bold" id="welcomeUser">Player123</p>
+                        <p class="text-sm"> Sensored: <span id="joinDate">15 Mar 2025</span></p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm opacity-90">Wallet Balance</p>
+                        <p class="text-4xl font-bold" id="walletBalance">₹0</p>
+                        <button onclick="showSection('deposit')" class="mt-2 bg-white text-primary px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition">
+                            Add Money
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rooms Section -->
+        <div id="roomsSection" class="max-w-7xl mx-auto px-4 pb-20">
+            <h2 class="text-3xl font-heading text-center mb-8 text-primary">Choose a Room & Play!</h2>
+            <p class="text-center text-gray-600 mb-8">Win 90% of pot | Only 10% platform fee</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- 1v1 & 4v4 Rooms -->
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(10, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹10</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹18</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(20, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹20</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹36</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(30, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹30</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹54</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(50, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹50</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹90</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(100, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹100</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹180</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(200, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹200</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹360</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(500, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-gamepad text-5xl text-secondary mb-3 dice-roll"></i>
+                        <p class="text-3xl font-bold text-primary">₹500</p>
+                        <p class="text-sm text-gray-600">Entry Fee</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹900</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+                <div class="room-card bg-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinRoom(1000, '1v1')">
+                    <div class="text-center">
+                        <i class="fas fa-crown text-5xl text-yellow-500 mb-3"></i>
+                        <p class="text-3xl font-bold text-primary">₹1,000</p>
+                        <p class="text-sm text-gray-600">VIP Room</p>
+                        <p class="text-lg font-bold text-green-600 mt-2">Win ₹1,800</p>
+                        <p class="text-xs text-gray-500 mt-1">1v1</p>
+                        <p class="text-xs text-gray-500">4v4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Erangel / Classic Mode -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-heading text-center mb-8 text-primary">Erangel / Classic Mode</h2>
+                <p class="text-center text-gray-600 mb-8">Per Kill = 50% of Entry Fee</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(10)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹10</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹5 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(20)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹20</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹10 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(30)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹30</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹15 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(50)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹50</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹25 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(100)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹100</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹50 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(200)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹200</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹100 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(300)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹300</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹150 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer" onclick="joinErangel(500)">
+                        <div class="text-center">
+                            <i class="fas fa-map text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹500</p>
+                            <p class="text-sm">Entry</p>
+                            <p class="text-lg font-bold mt-2">₹250 per kill</p>
+                        </div>
+                    </div>
+                    <div class="room-card bg-gradient-to-br from-yellow-500 to-red-600 text-white p-6 rounded-3xl shadow-lg card-hover cursor-pointer col-span-2 md:col-span-1" onclick="joinErangel(1000)">
+                        <div class="text-center">
+                            <i class="fas fa-crown text-5xl mb-3"></i>
+                            <p class="text-3xl font-bold">₹1,000</p>
+                            <p class="text-sm">VIP</p>
+                            <p class="text-lg font-bold mt-2">₹500 per kill</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminSection" class="hidden max-w-6xl mx-auto px-4 py-16">
+            <div class="bg-white rounded-3xl shadow-xl p-8">
+                <h2 class="text-3xl font-heading text-primary mb-6 text-center">Admin Panel</h2>
+                <div class="mb-6 p-4 bg-light rounded-xl text-center">
+                    <p class="text-xl font-bold">Total Registered Users: <span id="totalUsers">0</span></p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-4">Add Funds to User</h3>
+                    <div class="flex gap-4 mb-4">
+                        <input type="email" id="adminUserEmail" placeholder="User Email" class="flex-1 p-3 border rounded-xl">
+                        <input type="number" id="adminFundAmount" placeholder="Amount" class="w-32 p-3 border rounded-xl">
+                        <button onclick="addFundToUser()" class="bg-green-500 text-white px-6 py-3 rounded-xl font-bold">Add Funds</button>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-4">Deduct Funds from User</h3>
+                    <div class="flex gap-4 mb-4">
+                        <input type="email" id="adminUserEmailDeduct" placeholder="User Email" class="flex-1 p-3 border rounded-xl">
+                        <input type="number" id="adminDeductAmount" placeholder="Amount" class="w-32 p-3 border rounded-xl">
+                        <button onclick="deductFundFromUser()" class="bg-red-500 text-white px-6 py-3 rounded-xl font-bold">Deduct Funds</button>
+                    </div>
+                </div>
+                <div id="adminUserList" class="space-y-4 max-h-96 overflow-y-auto"></div>
+            </div>
+        </div>
+
+        <!-- DEPOSIT SECTION (ADDED) -->
+        <div id="depositSection" class="hidden max-w-4xl mx-auto px-4 py-10">
+            <div class="bg-white p-8 rounded-3xl shadow-xl">
+                <h2 class="text-3xl font-heading text-primary text-center mb-6">Deposit Money</h2>
+                <div class="mb-6 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
+                    <p class="text-center font-bold text-lg">Send payment to: <span class="text-primary">millnerkaptan01@fam</span></p>
+                    <p class="text-center text-sm mt-2">After payment, send screenshot to confirm</p>
+                </div>
+                <input type="number" id="depositAmount" placeholder="Enter Amount (min ₹10)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4" min="10">
+                <button onclick="sendDepositToWhatsApp()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition">
+                    Send Request on WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <!-- WITHDRAW SECTION (ADDED) -->
+        <div id="withdrawSection" class="hidden max-w-4xl mx-auto px-4 py-10">
+            <div class="bg-white p-8 rounded-3xl shadow-xl">
+                <h2 class="text-3xl font-heading text-primary text-center mb-6">Withdraw Money</h2>
+                <input type="number" id="withdrawAmount" placeholder="Enter Amount (min ₹100)" class="w-full p-4 border-2 border-secondary rounded-xl mb-4" min="100">
+                <select id="withdrawMethod" class="w-full p-4 border-2 border-secondary rounded-xl mb-4" onchange="toggleWithdrawFields()">
+                    <option value="upi">UPI</option>
+                    <option value="bank">Bank Transfer</option>
+                </select>
+                <div id="upiField" class="hidden mb-4">
+                    <input type="text" id="upiId" placeholder="Enter UPI ID" class="w-full p-4 border-2 border-secondary rounded-xl">
+                </div>
+                <div id="bankFields" class="hidden space-y-2">
+                    <input type="text" id="accName" placeholder="Account Holder Name" class="w-full p-4 border-2 border-secondary rounded-xl">
+                    <input type="text" id="accNumber" placeholder="Account Number" class="w-full p-4 border-2 border-secondary rounded-xl">
+                    <input type="text" id="ifsc" placeholder="IFSC Code" class="w-full p-4 border-2 border-secondary rounded-xl">
+                </div>
+                <button onclick="sendWithdrawToWhatsApp()" class="w-full bg-red-500 text-white py-4 rounded-xl font-bold hover:opacity-90 transition mt-4">
+                    Submit Request on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-10 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4">© 2025 Free Fire & PUBG. All rights reserved.</p>
+            <p class="text-sm">Play responsibly. 18+ only.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let currentUser = null;
+        let users = JSON.parse(localStorage.getItem('ludoUsers') || '[]');
+        let isAdmin = false;
+
+        function showSignup() { document.getElementById('signupModal').classList.remove('hidden'); }
+        function showLogin() { document.getElementById('loginModal').classList.remove('hidden'); }
+        function closeModals() { document.getElementById('signupModal').classList.add('hidden'); document.getElementById('loginModal').classList.add('hidden'); }
+        function showAdminLogin() { document.getElementById('adminLoginModal').classList.remove('hidden'); }
+        function closeAdminModal() { document.getElementById('adminLoginModal').classList.add('hidden'); }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value.trim().toLowerCase();
+            const pass = document.getElementById('adminPass').value;
+            if (email === 'admin@example.com' && pass === 'admin123') {
+                isAdmin = true;
+                localStorage.setItem('adminLoggedIn', 'true');
+                closeAdminModal();
+                showSection('admin');
+                updateTotalUsers();
+                loadAdminUsers();
+                alert('Admin login successful!');
+            } else {
+                alert('Invalid admin credentials');
+            }
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+            const phone = document.getElementById('signupPhone').value;
+            const pass = document.getElementById('signupPass').value;
+
+            if (users.find(u => u.email === email)) return alert('Email already exists!');
+
+            const user = { 
+                name, 
+                email, 
+                phone, 
+                pass, 
+                username: email.split('@')[0], 
+                joinDate: new Date().toLocaleDateString('en-GB'), 
+                balance: 0, 
+                lastSeen: 'just now', 
+                withdrawals: [] 
+            };
+            users.push(user);
+            saveUsers();
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            loginSuccess(user);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const pass = document.getElementById('loginPass').value;
+
+            const user = users.find(u => u.email === email && u.pass === pass);
+            if (user) {
+                user.lastSeen = 'just now';
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                loginSuccess(user);
+            } else {
+                alert('Invalid email or password');
+            }
+        }
+
+        function loginSuccess(user) {
+            currentUser = user;
+            closeModals();
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            document.getElementById('dashUsername').textContent = user.username;
+            document.getElementById('welcomeUser').textContent = user.username;
+            document.getElementById('joinDate').textContent = user.joinDate;
+            document.getElementById('walletBalance').textContent = `₹${user.balance}`;
+            updateLastSeen();
+        }
+
+        function saveUsers() {
+            localStorage.setItem('ludoUsers', JSON.stringify(users));
+        }
+
+        window.onload = () => {
+            const saved = localStorage.getItem('currentUser');
+            if (saved) {
+                const user = JSON.parse(saved);
+                const found = users.find(u => u.email === user.email);
+                if (found) loginSuccess(found);
+            }
+            if (localStorage.getItem('adminLoggedIn') === 'true') isAdmin = true;
+        };
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('adminLoggedIn');
+            isAdmin = false;
+            location.reload();
+        }
+
+        function toggleMenu() { document.getElementById('menuDropdown').classList.toggle('hidden'); }
+
+        function showSection(section) {
+            document.querySelectorAll('#dashboard > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(section + 'Section').classList.remove('hidden');
+            if (section === 'admin' && isAdmin) { updateTotalUsers(); loadAdminUsers(); }
+            if (section === 'withdraw') toggleWithdrawFields();
+            toggleMenu();
+        }
+
+        function joinRoom(amount, mode) {
+            if (!currentUser) { showLogin(); return; }
+            if (currentUser.balance < amount) { alert('Insufficient balance!'); showSection('deposit'); return; }
+            if (confirm(`Join ₹${amount} ${mode} room?`)) {
+                currentUser.balance -= amount;
+                const win = amount * 1.8;
+                alert(`Joined ${mode} room! Win up to ₹${win}`);
+                updateBalance();
+                window.open('https://wa.me/qr/F4GQCVUACU7DJ1', '_blank');
+            }
+        }
+
+        function joinErangel(amount) {
+            if (!currentUser) { showLogin(); return; }
+            if (currentUser.balance < amount) { alert('Insufficient balance!'); showSection('deposit'); return; }
+            if (confirm(`Join Erangel ₹${amount} room? (₹${amount/2} per kill)`)) {
+                currentUser.balance -= amount;
+                alert(`Joined Erangel! ₹${amount/2} per kill.`);
+                updateBalance();
+                window.open('https://wa.me/qr/F4GQCVUACU7DJ1', '_blank');
+            }
+        }
+
+        function updateBalance() {
+            if (currentUser) {
+                document.getElementById('walletBalance').textContent = `₹${currentUser.balance}`;
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                saveUsers();
+            }
+        }
+
+        function updateLastSeen() {
+            setInterval(() => {
+                if (currentUser) document.getElementById('lastSeen').textContent = 'Last seen: just now';
+            }, 30000);
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) document.getElementById('menuDropdown').classList.add('hidden');
+        });
+
+        // ADMIN PANEL
+        function updateTotalUsers() {
+            document.getElementById('totalUsers').textContent = users.length;
+        }
+
+        function loadAdminUsers() {
+            const container = document.getElementById('adminUserList');
+            container.innerHTML = '';
+            users.forEach(user => {
+                const div = document.createElement('div');
+                div.className = 'p-4 border rounded-xl bg-gray-50';
+                div.innerHTML = `
+                    <p><strong>${user.username}</strong> (${user.email}) - Balance: ₹${user.balance}</p>
+                    <div class="flex gap-2 mt-2">
+                        <input type="number" placeholder="Amount" class="p-2 border rounded w-24" min="1">
+                        <button onclick="addFund('${user.email}', this.previousElementSibling.value)" class="bg-green-500 text-white px-3 py-1 rounded text-sm">Add</button>
+                        <button onclick="deductFund('${user.email}', this.parentElement.querySelector('input').value)" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Deduct</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function addFundToUser() {
+            const email = document.getElementById('adminUserEmail').value.trim().toLowerCase();
+            const amount = parseFloat(document.getElementById('adminFundAmount').value);
+            if (!email || !amount) return alert('Enter email and amount');
+            addFund(email, amount);
+        }
+
+        function deductFundFromUser() {
+            const email = document.getElementById('adminUserEmailDeduct').value.trim().toLowerCase();
+            const amount = parseFloat(document.getElementById('adminDeductAmount').value);
+            if (!email || !amount) return alert('Enter email and amount');
+            deductFund(email, amount);
+        }
+
+        function addFund(email, amountStr) {
+            const amt = parseFloat(amountStr);
+            if (isNaN(amt) || amt <= 0) return alert('Enter valid amount');
+            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (!user) return alert('User not found! Check email spelling.');
+            user.balance += amt;
+            saveUsers();
+            alert(`₹${amt} added to ${user.username}. New balance: ₹${user.balance}`);
+            loadAdminUsers();
+            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) updateBalance();
+        }
+
+        function deductFund(email, amountStr) {
+            const amt = parseFloat(amountStr);
+            if (isNaN(amt) || amt <= 0) return alert('Enter valid amount');
+            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (!user) return alert('User not found! Check email spelling.');
+            if (user.balance < amt) return alert(`Insufficient balance. User has only ₹${user.balance}`);
+            user.balance -= amt;
+            saveUsers();
+            alert(`₹${amt} deducted from ${user.username}. New balance: ₹${user.balance}`);
+            loadAdminUsers();
+            if (currentUser && currentUser.email.toLowerCase() === email.toLowerCase()) updateBalance();
+        }
+
+        // DEPOSIT & WITHDRAW FUNCTIONS
+        function toggleWithdrawFields() {
+            const method = document.getElementById('withdrawMethod').value;
+            document.getElementById('upiField').classList.toggle('hidden', method !== 'upi');
+            document.getElementById('bankFields').classList.toggle('hidden', method !== 'bank');
+        }
+
+        function sendDepositToWhatsApp() {
+            const amt = document.getElementById('depositAmount').value;
+            if (!amt || amt < 10) return alert('Enter amount ≥ ₹10');
+            const msg = `DEPOSIT REQUEST\nUser: ${currentUser.username}\nEmail: ${currentUser.email}\nAmount: ₹${amt}\nPayment Method: millnerkaptan01@fam`;
+            window.open(`https://wa.me/qr/F4GQCVUACU7DJ1?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function sendWithdrawToWhatsApp() {
+            const amt = document.getElementById('withdrawAmount').value;
+            if (!amt || amt < 100) return alert('Minimum ₹100');
+            if (currentUser.balance < amt) return alert('Insufficient balance');
+            const method = document.getElementById('withdrawMethod').value;
+            let details = '';
+            if (method === 'upi') {
+                const upi = document.getElementById('upiId').value;
+                if (!upi) return alert('Enter UPI ID');
+                details = `UPI: ${upi}`;
+            } else {
+                const name = document.getElementById('accName').value;
+                const acc = document.getElementById('accNumber').value;
+                const ifsc = document.getElementById('ifsc').value;
+                if (!name || !acc || !ifsc) return alert('Fill all bank details');
+                details = `Name: ${name}\nAccount: ${acc}\nIFSC: ${ifsc}`;
+            }
+            const msg = `WITHDRAW REQUEST\nUser: ${currentUser.username}\nEmail: ${currentUser.email}\nAmount: ₹${amt}\n${details}`;
+            window.open(`https://wa.me/qr/F4GQCVUACU7DJ1?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
